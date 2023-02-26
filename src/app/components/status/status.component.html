@@ -1,0 +1,15 @@
+<div class="wrapper">
+
+  <div *ngFor="let $box of boxes" class="box">
+    <div class="status-text">
+      <span class="light" 
+      [class.stop-pilot]="action === 'stop'"
+      [class.pending-pilot]="action === 'pending'"
+      [class.init-pilot]="action === 'init'"
+      ></span>
+      <span>{{ status | titlecase }}</span>
+    </div>
+    <span class="box-id">{{$box}}</span>
+  </div>
+  
+</div>

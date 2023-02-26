@@ -1,0 +1,54 @@
+<div class="sidenav">
+  <p-menu
+    [model]="items"
+    [style]="{ width: '100%', height: '100%', border: 'none'}"
+  ></p-menu>
+</div>
+
+<p-dialog
+  position="center"
+  (onHide)="hideDialog()"
+  [header]="dialogHeader"
+  [modal]="true"
+  [style]="{ width: '30em' }"
+  [baseZIndex]="10000"
+  [draggable]="false"
+  [resizable]="false"
+  [(visible)]="displayPosition"
+>
+  <div class="field">
+    <span class="p-input-icon-right block" [style]="{ width: '100%' }">
+      <i
+        *ngIf="error.folderName"
+        class="pi pi-info-circle"
+        [style]="{ color: '#ef9a9a' }"
+      ></i>
+      <input
+        id="folder-name"
+        type="text"
+        autofocus
+        pInputText
+        autocomplete="off"
+        (keyup.enter)="createNewFolder()"
+        [style]="{ width: '100%' }"
+        [ngClass]="{ 'ng-invalid ng-dirty': error.folderName }"
+        [(ngModel)]="folderName"
+      />
+    </span>
+    <small *ngIf="error.folderName" id="folder-name-help" class="p-error block"
+      >Ya existe una carpeta con ese nombre</small
+    >
+  </div>
+  <ng-template pTemplate="footer">
+    <p-button
+      icon="pi pi-times"
+      label="Cancelar"
+      (click)="cancelNewFolder()"
+    ></p-button>
+    <p-button
+      icon="pi pi-check"
+      label="Aceptar"
+      (click)="createNewFolder()"
+    ></p-button>
+  </ng-template>
+</p-dialog>

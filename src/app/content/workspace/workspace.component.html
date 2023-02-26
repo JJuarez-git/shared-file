@@ -1,0 +1,6 @@
+<div class="items-list">
+  <div *ngFor="let file of workspace$ | async">
+    <app-file *ngIf="file.isFile" [name]="file.name"></app-file>
+    <app-folder *ngIf="file.isFolder" [name]="file.name"></app-folder>
+  </div>
+</div>

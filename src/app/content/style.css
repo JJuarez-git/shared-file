@@ -1,0 +1,57 @@
+.file-folder-wrapper {
+  position: relative;
+  /* display: inline-block; */
+  border-radius: 6px;
+  margin-right: .5em;
+  margin-bottom: .5em;
+  width: 10em;
+  height: 10em;
+  background-color: #222;
+  animation: fadein 0.15s linear;
+}
+
+.file-folder-wrapper:hover {
+  background-color: #111;
+  cursor: pointer;
+}
+
+.file-folder-wrapper button {
+  position: absolute;
+  right: 0;
+}
+
+.icon-wrapper {
+  position: absolute;
+  top: 30%;
+  left: calc(50% - 2em);
+}
+
+.file-folder-icon {
+  display: block;
+  color: #999;
+  font-size: 4em;
+}
+
+.text-wrapper {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  color: #ddd;
+  padding-bottom: 0.5em;
+}
+
+.text-wrapper p {
+  height: 22px;
+  font-size: 0.8em;
+  text-align: center;
+  overflow: hidden;
+}
+
+@keyframes fadein {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}

@@ -1,0 +1,55 @@
+.navbar {
+    padding: 1em;
+    background-color: #222;
+    position: relative;
+    margin: .5em;
+    margin-bottom: 0;
+    border-radius: 6px;
+    border: 1px solid #383838;
+}
+
+.navbar > a {
+    display: inline-block;
+    text-decoration: none;
+    color: #000;
+    background-color: #fff;
+    padding: .6em .8em;
+    border-radius: 4px;
+    margin-right: 1em;
+    font-weight: bold;
+}
+
+.status-text {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    /* background-color: #fff; */
+    top: 1em;
+    right: 1em;
+    border-radius: 20px;
+    font-size: .7em;
+    padding: .4em;
+}
+
+.status-text > span:first-child {
+    margin: 0 .5em;
+}
+
+.status-text > span:last-child {
+    margin-right: .5em;
+}
+
+.light {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    border-radius: 10px;
+}
+
+.red-pilot {
+    background-color: red;
+}
+
+.green-pilot {
+    background-color: #00d900;
+}

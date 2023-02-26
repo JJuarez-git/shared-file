@@ -1,0 +1,72 @@
+.wrapper {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 1em;
+}
+
+.box {
+    width: 10em;
+    height: 10em;
+    background-color: #222;
+    border-radius: 6px;
+    position: relative;
+}
+
+.box-id {
+    position: absolute;
+    right: 1em;
+    top: .5em;
+    font-weight: bold;
+    color: #444;
+}
+
+.status-text {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    background-color: #fff;
+    top: 1em;
+    left: 1em;
+    border-radius: 20px;
+    font-size: .7em;
+    padding: .4em;
+}
+
+.status-text > span:first-child {
+    margin: 0 .5em;
+}
+
+.status-text > span:last-child {
+    margin-right: .5em;
+}
+
+.light {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    border-radius: 10px;
+}
+
+.stop-pilot {
+    background-color: red;
+}
+
+.pending-pilot {
+    animation: pending 2000ms none infinite steps(1);
+}
+
+.init-pilot {
+    background-color: #00d900;
+}
+
+@keyframes pending {
+    0% {
+        background-color: #222;
+    }
+    50% {
+        background-color: #ffb20b;
+    }
+    100% {
+        background-color: #222;
+    }
+}
