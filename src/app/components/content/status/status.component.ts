@@ -1,6 +1,6 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Subscription } from 'rxjs';
-import { SocketService } from '../../services/socket.service';
+import { SocketService } from 'src/app/services/socket.service';
 
 @Component({
   selector: 'app-status',

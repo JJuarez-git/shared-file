@@ -5,33 +5,18 @@ import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
-import { StatusComponent } from './components/status/status.component';
-import { PanelComponent } from './layout/panel/panel.component';
-import { NavbarComponent } from './components/navbar/navbar.component';
-import { FileComponent } from './content/file/file.component';
-import { FileDetailsComponent } from './content/file-details/file-details.component';
-import { FolderComponent } from './content/folder/folder.component';
-import { SidenavComponent } from './layout/sidenav/sidenav.component';
-import { TopbarComponent } from './layout/topbar/topbar.component';
-import { WorkspaceComponent } from './content/workspace/workspace.component';
-import { AuthButtonComponent } from './components/auth-button/auth-button.component';
+import { environment } from 'src/environments/environment';
 
+// Auth0
 import { AuthModule } from '@auth0/auth0-angular';
+
+// Store NGRX
 import { StoreModule } from '@ngrx/store';
 import { STORE, STORE_EFFECTS } from './ngrx/store/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
-import { environment } from 'src/environments/environment';
-
-
-
-import { MenuModule } from 'primeng/menu';
-import { ButtonModule } from 'primeng/button';
-import { MessagesModule } from 'primeng/messages';
-import { DialogModule } from 'primeng/dialog';
-import { InputTextModule } from 'primeng/inputtext';
-import { FormsModule } from '@angular/forms';
 import { EffectsModule } from '@ngrx/effects';
-import { AnimateModule } from 'primeng/animate';
+import { AuthComponent } from './components/pages/auth/auth.component';
+
 
 
 
@@ -39,23 +24,13 @@ import { AnimateModule } from 'primeng/animate';
 @NgModule({
   declarations: [
     AppComponent,
-    StatusComponent,
-    PanelComponent,
-    NavbarComponent,
-    FileComponent,
-    FileDetailsComponent,
-    FolderComponent,
-    SidenavComponent,
-    TopbarComponent,
-    WorkspaceComponent,
-    AuthButtonComponent
+    AuthComponent
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
-    AppRoutingModule,
     HttpClientModule,
-    FormsModule,
+    AppRoutingModule,
     StoreModule.forRoot(STORE, {}),
     EffectsModule.forRoot(STORE_EFFECTS),
     StoreDevtoolsModule.instrument({
@@ -68,13 +43,7 @@ import { AnimateModule } from 'primeng/animate';
       authorizationParams: {
         redirect_uri: window.location.origin
       }
-    }),
-    ButtonModule,
-    MenuModule,
-    MessagesModule,
-    DialogModule,
-    InputTextModule,
-    AnimateModule
+    })
   ],
   providers: [],
   bootstrap: [AppComponent]

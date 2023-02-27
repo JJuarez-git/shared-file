@@ -1,8 +1,8 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { StoreEntity } from '../../ngrx/store/store';
-import { deleteFolder } from '../../ngrx/actions/workspace.actions';
-import { WorkspaceService } from '../../services/workspace.service';
+import { WorkspaceService } from 'src/app/services/workspace.service';
+import { deleteFolder } from 'src/app/ngrx/actions/workspace.actions';
+import { StoreEntity } from 'src/app/ngrx/store/store';
 
 @Component({
   selector: 'app-folder',

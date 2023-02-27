@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { SocketService } from '../../services/socket.service';
+import { SocketService } from 'src/app/services/socket.service';
 
 @Component({
   selector: 'app-navbar',

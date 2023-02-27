@@ -1,11 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { MenuItem } from 'primeng/api';
+import { WorkspaceItem } from 'src/app/models/WorkspaceItem';
 import { StoreEntity } from 'src/app/ngrx/store/store';
-import { WorkspaceService } from '../../services/workspace.service';
-import { addFolder } from '../../ngrx/actions/workspace.actions';
-import { WorkspaceItem } from '../../models/WorkspaceItem';
 import { SocketService } from 'src/app/services/socket.service';
+import { WorkspaceService } from 'src/app/services/workspace.service';
 
 @Component({
   selector: 'app-sidenav',
@@ -39,7 +38,15 @@ export class SidenavComponent implements OnInit {
     this.items = [
       {
         label: 'Mi espacio',
-        items: this.folders
+        items: [{
+          label: 'Mi espacio',
+          icon: 'pi pi-home',
+          routerLink: 'workspace',
+          command: () => {
+            
+          }
+        }
+        ]
       },
       {
         label: 'Crear',

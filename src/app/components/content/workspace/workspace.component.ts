@@ -1,11 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { SocketService } from '../../services/socket.service';
-import { WorkspaceService } from '../../services/workspace.service';
 import { Observable } from 'rxjs';
 import { Store } from '@ngrx/store';
-import { StoreEntity } from '../../ngrx/store/store';
 import { addFolder } from 'src/app/ngrx/actions/workspace.actions';
-import { WorkspaceItem } from '../../models/WorkspaceItem';
+import { SocketService } from 'src/app/services/socket.service';
+import { StoreEntity } from 'src/app/ngrx/store/store';
+import { WorkspaceItem } from 'src/app/models/WorkspaceItem';
 
 @Component({
   selector: 'app-workspace',
