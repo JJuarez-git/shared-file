@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { io, Socket } from 'socket.io-client';
 import { getWorkspace } from '../ngrx/actions/workspace.actions';
 import { StoreEntity } from '../ngrx/store/store';
+import { environment } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -14,7 +15,7 @@ export class SocketService {
   socketStatus = false;
 
   constructor(private store: Store<StoreEntity>) {
-    this._socket = io('http://localhost:9000');
+    this._socket = io(environment.apiURL);
     this.checkStatus();
   }
 

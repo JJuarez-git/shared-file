@@ -23,8 +23,7 @@ import { AuthComponent } from './components/pages/auth/auth.component';
 
 @NgModule({
   declarations: [
-    AppComponent,
-    AuthComponent
+    AppComponent
   ],
   imports: [
     BrowserModule,

@@ -1,4 +1,5 @@
 export const environment = {
   production: true,
-  apiUrl: 'http://localhost:9000/api/v1'
+  apiURI: '/api/v1/',
+  apiURL: 'https://shared-file-server.onrender.com'
 };

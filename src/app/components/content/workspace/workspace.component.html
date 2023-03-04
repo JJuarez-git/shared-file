@@ -1,5 +1,5 @@
-<div class="items-list">
-  <div *ngFor="let file of workspace$ | async">
+<div class="items-list" style="transition: 250ms;">
+  <div *ngFor="let file of workspace$ | async" style="transition: 250ms;">
     <app-file *ngIf="file.isFile" [name]="file.name"></app-file>
     <app-folder *ngIf="file.isFolder" [name]="file.name"></app-folder>
   </div>

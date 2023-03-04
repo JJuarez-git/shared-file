@@ -7,6 +7,7 @@
   width: 10em;
   height: 10em;
   background-color: #222;
+  transition: 250ms;
   animation: fadein 0.15s linear;
 }
 

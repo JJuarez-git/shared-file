@@ -7,6 +7,8 @@ import { MessagesModule } from 'primeng/messages';
 import { DialogModule } from 'primeng/dialog';
 import { InputTextModule } from 'primeng/inputtext';
 import { AnimateModule } from 'primeng/animate';
+import { CardModule } from 'primeng/card';
+
 
 const DECLARATIONS = [
   CommonModule,
@@ -15,7 +17,8 @@ const DECLARATIONS = [
   MessagesModule,
   DialogModule,
   InputTextModule,
-  AnimateModule
+  AnimateModule,
+  CardModule
 ]
 
 @NgModule({
