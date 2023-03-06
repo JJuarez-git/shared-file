@@ -11,7 +11,7 @@ export class WorkspaceEffects {
 
     getWorkspace$ = createEffect((): any => this.actions$.pipe(
         ofType(WorkspaceActions.getWorkspace),
-        mergeMap((action: any) => this.workspaceService.getWorkspace('jjuarez').pipe(
+        mergeMap((action: any) => this.workspaceService.getWorkspace(action.payload.workspace).pipe(
             map((workspace: WorkspaceItem[]) => ({ type: WorkspaceActions.GET_WORKSPACE_SUCCESS, payload: workspace })),
             catchError((error) => WorkspaceActions.getWorkspaceFailure([]))
         )))

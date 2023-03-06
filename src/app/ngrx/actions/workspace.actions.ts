@@ -9,9 +9,10 @@ export const GET_WORKSPACE_FAILURE = '[Workspace Component] Get Workspace Failur
 export const ADD_FOLDER = '[Workspace Component] Add Folder';
 export const DELETE_FOLDER = '[Workspace Component] Delete Folder';
 
-export const getWorkspace = createAction(GET_WORKSPACE);
+export const getWorkspace = createAction(GET_WORKSPACE, props<{ payload: { workspace: string } }>());
 export const getWorkspaceSuccess = createAction(GET_WORKSPACE_SUCCESS, props<{ payload: WorkspaceItem[] }>());
 export const getWorkspaceFailure = createAction(GET_WORKSPACE_FAILURE, props<any>());
 
 export const addFolder = createAction(ADD_FOLDER, props<{ payload: WorkspaceItem }>());
 export const deleteFolder = createAction(DELETE_FOLDER, props<{ payload: string }>());
+

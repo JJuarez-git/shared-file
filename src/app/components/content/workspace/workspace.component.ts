@@ -5,6 +5,7 @@ import { addFolder } from 'src/app/ngrx/actions/workspace.actions';
 import { SocketService } from 'src/app/services/socket.service';
 import { StoreEntity } from 'src/app/ngrx/store/store';
 import { WorkspaceItem } from 'src/app/models/WorkspaceItem';
+import { getWorkspace } from '../../../ngrx/actions/workspace.actions';
 
 @Component({
   selector: 'app-workspace',
@@ -22,7 +23,8 @@ export class WorkspaceComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.workspace$ = this.store.select('workspace');
+    // this.store.dispatch(getWorkspace({ payload: { workspace: 'jjuarez' } }))
+    // this.workspace$ = this.store.select('workspace');
     this.socketService.listen('add-folder-emit').subscribe({
       next: ({ folder }) => this.store.dispatch(addFolder({ payload: folder }))
     })

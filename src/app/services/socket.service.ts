@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { io, Socket } from 'socket.io-client';
-import { getWorkspace } from '../ngrx/actions/workspace.actions';
 import { StoreEntity } from '../ngrx/store/store';
 import { environment } from '../../environments/environment';
 
@@ -23,7 +22,6 @@ export class SocketService {
     this._socket.on('connect', () => {
       console.log("Conectado al socket");
       this.socketStatus = true;
-      this.store.dispatch(getWorkspace())
     });
 
     this._socket.on('disconnect', () => {

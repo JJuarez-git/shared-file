@@ -1,10 +1,10 @@
 import { createReducer, on } from '@ngrx/store';
 import * as WorkspaceActions from '../actions/workspace.actions';
 
-export const initialState: any[] = [];
+export const workspaceState: any[] = [];
 
 export const workspaceReducer = createReducer(
-    initialState,
+    workspaceState,
     on(WorkspaceActions.getWorkspace, (state) => state),
     on(WorkspaceActions.getWorkspaceSuccess, (state, result) => result.payload),
     on(WorkspaceActions.getWorkspaceFailure, (state, result) => result.payload),

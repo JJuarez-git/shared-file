@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { environment } from 'src/environments/environment';
@@ -15,10 +15,8 @@ import { StoreModule } from '@ngrx/store';
 import { STORE, STORE_EFFECTS } from './ngrx/store/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { EffectsModule } from '@ngrx/effects';
-import { AuthComponent } from './components/pages/auth/auth.component';
 
-
-
+import { TokenInterceptor } from './services/token.interceptor';
 
 
 @NgModule({
@@ -44,7 +42,9 @@ import { AuthComponent } from './components/pages/auth/auth.component';
       }
     })
   ],
-  providers: [],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -2,7 +2,9 @@
   <a [routerLink]="['']">Panel</a>
   <a [routerLink]="['status']">Status</a>
 
-  <app-auth-button></app-auth-button>
+  <button pButton (click)="logOut()">LogOut</button>
+
+  <!-- <app-auth-button></app-auth-button> -->
 
   <div class="status-text">
     <span class="light red-pilot" [ngClass]="{'green-pilot': socketService.socketStatus}"></span>

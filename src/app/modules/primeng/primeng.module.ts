@@ -6,6 +6,7 @@ import { MenuModule } from 'primeng/menu';
 import { MessagesModule } from 'primeng/messages';
 import { DialogModule } from 'primeng/dialog';
 import { InputTextModule } from 'primeng/inputtext';
+import { PasswordModule } from 'primeng/password';
 import { AnimateModule } from 'primeng/animate';
 import { CardModule } from 'primeng/card';
 
@@ -17,6 +18,7 @@ const DECLARATIONS = [
   MessagesModule,
   DialogModule,
   InputTextModule,
+  PasswordModule,
   AnimateModule,
   CardModule
 ]

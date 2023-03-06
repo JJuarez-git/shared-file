@@ -1,0 +1,17 @@
+<p-card
+  [style]="{ width: '30rem', borderRadius: '10px', overflow: 'hidden' }"
+  styleClass="p-card-shadow"
+>
+  <form [formGroup]="loginForm" (ngSubmit)="login($event)">
+    <span class="p-float-label" [style]="{ marginBottom: '1.5em' }">
+      <input id="email-input" type="text" pInputText formControlName="email" />
+      <label for="email-input">Email</label>
+    </span>
+    <span class="p-float-label" [style]="{ marginBottom: '1.5em' }">
+      <input id="pass-input" type="password" pPassword formControlName="password" />
+      <label for="float-input">Password</label>
+    </span>
+    <p-button label="Login" type="submit" [disabled]="!loginForm.valid"></p-button>
+    <a [routerLink]="['/auth/signup']">Signup</a>
+  </form>
+</p-card>
