@@ -1,17 +1,18 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { MenuItem } from 'primeng/api';
 import { WorkspaceItem } from 'src/app/models/WorkspaceItem';
 import { StoreEntity } from 'src/app/ngrx/store/store';
 import { SocketService } from 'src/app/services/socket.service';
 import { WorkspaceService } from 'src/app/services/workspace.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-sidenav',
   templateUrl: './sidenav.component.html',
   styleUrls: ['./sidenav.component.css']
 })
-export class SidenavComponent implements OnInit {
+export class SidenavComponent implements OnInit, OnDestroy {
 
   items!: MenuItem[];
   displayPosition = false;
@@ -22,6 +23,8 @@ export class SidenavComponent implements OnInit {
   }
 
   folders: any[] = [];
+  username!: string;
+  storeSub$!: Subscription;
 
   constructor(
     private socketService: SocketService,
@@ -30,22 +33,37 @@ export class SidenavComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.store.select('workspace').subscribe({
-      next: (res: WorkspaceItem[]) => this.folders = res.map(item => ({ label: item.name, icon: 'pi pi-folder' }))
+    this.storeSub$ = this.store.select((state) => state.auth.username).subscribe({
+      next: (res) => this.username = res
     });
 
 
     this.items = [
       {
         label: 'Mi espacio',
-        items: [{
-          label: 'Mi espacio',
-          icon: 'pi pi-home',
-          routerLink: 'workspace',
-          command: () => {
-            
+        items: [
+          {
+            label: 'Mi espacio',
+            icon: 'pi pi-home',
+            routerLink: 'workspace',
+            command: () => {
+
+            }
+          },
+          {
+            label: 'Favoritos',
+            icon: 'pi pi-star',
+            command: () => {
+              alert('Subir archivo')
+            }
+          },
+          {
+            label: 'Papelera',
+            icon: 'pi pi-trash',
+            command: () => {
+              alert('Subir carpeta')
+            }
           }
-        }
         ]
       },
       {
@@ -97,31 +115,16 @@ export class SidenavComponent implements OnInit {
             }
           }
         ]
-      },
-      {
-        label: 'Otros',
-        items: [
-          {
-            label: 'Favoritos',
-            icon: 'pi pi-star',
-            command: () => {
-              alert('Subir archivo')
-            }
-          },
-          {
-            label: 'Papelera',
-            icon: 'pi pi-trash',
-            command: () => {
-              alert('Subir carpeta')
-            }
-          }
-        ]
       }
     ]
   }
 
+  ngOnDestroy(): void {
+    this.storeSub$.unsubscribe();
+  }
+
   createNewFolder() {
-    this.workspaceService.createFolderIntoWorkspace('jjuarez', this.folderName).subscribe({
+    this.workspaceService.createFolderIntoWorkspace(this.username, this.folderName).subscribe({
       next: (res) => {
         // Tratar datos de respusta
         const folder: WorkspaceItem = {

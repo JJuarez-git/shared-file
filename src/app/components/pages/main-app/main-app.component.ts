@@ -6,7 +6,7 @@ import { getNGRXAuth } from 'src/app/ngrx/selectors/auth.selectors';
 import { StoreEntity } from 'src/app/ngrx/store/store';
 import { auth } from '../../../../firebaseconfig';
 import { getWorkspace } from '../../../ngrx/actions/workspace.actions';
-import { GET_TOKEN_SUCCESS } from '../../../ngrx/actions/auth.actions';
+import { GET_TOKEN_SUCCESS, GENERATE_TOKEN_SUCCESS } from '../../../ngrx/actions/auth.actions';
 
 @Component({
   selector: 'app-main-app',
@@ -24,7 +24,12 @@ export class MainAppComponent implements OnInit {
 
   ngOnInit() {
     // AQUI SE HARAN SUBSCRIPCIONES AL INICIAR SESION
-    this.store.dispatch(getToken({ payload: { email: auth.currentUser?.email as string } }));
+    // Dispatch init subs
+    this.store.dispatch(getToken({ payload: { email: auth.currentUser?.email as string } }))
+    /* this.actionsSubject$.pipe(filter((action) => action.type === GENERATE_TOKEN_SUCCESS)).subscribe({
+      next: (authData: any) => this.store.dispatch(getToken({ payload: { email: auth.currentUser?.email as string } }))
+    }) */
+
 
     this.actionsSubject$.pipe(filter((action) => action.type === GET_TOKEN_SUCCESS)).subscribe({
       next: (authData: any) => {

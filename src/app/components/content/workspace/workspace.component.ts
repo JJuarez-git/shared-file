@@ -23,8 +23,7 @@ export class WorkspaceComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    // this.store.dispatch(getWorkspace({ payload: { workspace: 'jjuarez' } }))
-    // this.workspace$ = this.store.select('workspace');
+    this.workspace$ = this.store.select((state) => state.workspace);
     this.socketService.listen('add-folder-emit').subscribe({
       next: ({ folder }) => this.store.dispatch(addFolder({ payload: folder }))
     })

@@ -33,6 +33,7 @@ import { TokenInterceptor } from './services/token.interceptor';
     StoreDevtoolsModule.instrument({
       maxAge: 25, // Retains last 25 states
       logOnly: environment.production, // Restrict extension to log-only mode
+      trace: true
     }),
     AuthModule.forRoot({
       domain: 'dev-yggwu6gtjjgkfwdd.eu.auth0.com',

@@ -4,15 +4,15 @@
 >
   <form [formGroup]="signUpForm" (ngSubmit)="signUp($event)">
     <span class="p-float-label" [style]="{ marginBottom: '1.5em' }">
-      <input id="username-input" type="text" pInputText formControlName="username" />
+      <input id="username-input" type="text" pInputText formControlName="username" autocomplete="off" />
       <label for="username-input">Username</label>
     </span>
     <span class="p-float-label" [style]="{ marginBottom: '1.5em' }">
-      <input id="email-input" type="text" pInputText formControlName="email" />
+      <input id="email-input" type="email" pInputText formControlName="email" autocomplete="off" />
       <label for="email-input">Email</label>
     </span>
     <span class="p-float-label" [style]="{ marginBottom: '1.5em' }">
-      <input id="pass-input" type="password" pPassword formControlName="password" />
+      <input id="pass-input" type="password" pPassword formControlName="password" autocomplete="off"/>
       <label for="float-input">Password</label>
     </span>
     <p-button label="Signup" type="submit" [disabled]="!signUpForm.valid"></p-button>
