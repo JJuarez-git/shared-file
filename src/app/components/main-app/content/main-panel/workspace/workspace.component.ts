@@ -5,7 +5,7 @@ import { addFolder } from 'src/app/ngrx/actions/workspace.actions';
 import { SocketService } from 'src/app/services/socket.service';
 import { StoreEntity } from 'src/app/ngrx/store/store';
 import { WorkspaceItem } from 'src/app/models/WorkspaceItem';
-import { getWorkspace } from '../../../ngrx/actions/workspace.actions';
+import { getWorkspace } from '../../../../../ngrx/actions/workspace.actions';
 
 @Component({
   selector: 'app-workspace',

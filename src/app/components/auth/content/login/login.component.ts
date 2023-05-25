@@ -6,7 +6,7 @@ import { signInWithEmailAndPassword } from 'firebase/auth';
 import { getToken } from 'src/app/ngrx/actions/auth.actions';
 import { AuthService } from 'src/app/services/auth.service';
 import { auth } from 'src/firebaseconfig';
-import { StoreEntity } from '../../../ngrx/store/store';
+import { StoreEntity } from '../../../../ngrx/store/store';
 
 @Component({
   selector: 'app-login',

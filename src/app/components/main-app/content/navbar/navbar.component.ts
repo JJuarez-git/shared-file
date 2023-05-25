@@ -4,7 +4,7 @@ import { signOut } from 'firebase/auth';
 import { Observable } from 'rxjs';
 import { SocketService } from 'src/app/services/socket.service';
 import { auth } from 'src/firebaseconfig';
-import { StoreEntity } from '../../../ngrx/store/store';
+import { StoreEntity } from '../../../../ngrx/store/store';
 
 @Component({
   selector: 'app-navbar',

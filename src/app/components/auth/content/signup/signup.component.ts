@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { auth } from 'src/firebaseconfig';
-import { AuthService } from '../../../services/auth.service';
+import { AuthService } from '../../../../services/auth.service';
 import { generateToken } from 'src/app/ngrx/actions/auth.actions';
 import { Store } from '@ngrx/store';
 import { StoreEntity } from 'src/app/ngrx/store/store';
