@@ -1,7 +1,9 @@
 <app-navbar></app-navbar>
 <div class="container">
   <app-sidenav></app-sidenav>
-  <p>{{ tkn }}</p>
-  <router-outlet></router-outlet>
+  <div class="container-layout">
+    <app-topbar></app-topbar>
+    <router-outlet></router-outlet>
+  </div>
   <!-- <app-panel style="flex-grow: 1"></app-panel> -->
 </div>

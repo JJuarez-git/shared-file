@@ -6,6 +6,7 @@ import { StoreEntity } from 'src/app/ngrx/store/store';
 import { SocketService } from 'src/app/services/socket.service';
 import { WorkspaceService } from 'src/app/services/workspace.service';
 import { Subscription } from 'rxjs';
+import { addFolder } from 'src/app/ngrx/actions/workspace.actions';
 
 @Component({
   selector: 'app-sidenav',
@@ -24,6 +25,7 @@ export class SidenavComponent implements OnInit, OnDestroy {
 
   folders: any[] = [];
   username!: string;
+  email!: string;
   storeSub$!: Subscription;
 
   constructor(
@@ -33,8 +35,11 @@ export class SidenavComponent implements OnInit, OnDestroy {
   ) { }
 
   ngOnInit(): void {
-    this.storeSub$ = this.store.select((state) => state.auth.username).subscribe({
-      next: (res) => this.username = res
+    this.storeSub$ = this.store.select((state) => state.auth).subscribe({
+      next: (res) => {
+        this.username = res.username
+        this.email = res.email
+      }
     });
 
 
@@ -132,8 +137,8 @@ export class SidenavComponent implements OnInit, OnDestroy {
           isFile: false,
           isFolder: true
         }
-        //this.store.dispatch(addFolder({ payload: folder }))
-        this.socketService.emit('add-folder', { folder });
+        // this.store.dispatch(addFolder({ payload: folder }))
+        this.socketService.emit('add-folder', { folder, room: this.email });
       },
       error: (err) => this.error.folderName = true,
       complete: () => {

@@ -1,4 +1,11 @@
 .container {
+    /* border: 1px solid blue; */
     display: flex;
     padding: .5em;
+    width: 100%;
+}
+
+.container-layout {
+    /* border: 1px solid green; */
+    width: 100%;
 }

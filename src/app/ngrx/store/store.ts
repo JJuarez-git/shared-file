@@ -6,7 +6,11 @@ import { AuthEffects } from '../effects/auth.effects';
 
 export interface StoreEntity {
     workspace: any,
-    auth: any
+    auth: {
+        token: string,
+        email: string,
+        username: string
+    }
 }
 
 export const STORE = {

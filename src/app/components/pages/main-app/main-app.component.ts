@@ -7,6 +7,7 @@ import { StoreEntity } from 'src/app/ngrx/store/store';
 import { auth } from '../../../../firebaseconfig';
 import { getWorkspace } from '../../../ngrx/actions/workspace.actions';
 import { GET_TOKEN_SUCCESS, GENERATE_TOKEN_SUCCESS } from '../../../ngrx/actions/auth.actions';
+import { SocketService } from '../../../services/socket.service';
 
 @Component({
   selector: 'app-main-app',
@@ -19,7 +20,8 @@ export class MainAppComponent implements OnInit {
 
   constructor(
     private actionsSubject$: ActionsSubject,
-    private store: Store<StoreEntity>
+    private store: Store<StoreEntity>,
+    private socketService: SocketService
   ) { }
 
   ngOnInit() {
@@ -34,6 +36,7 @@ export class MainAppComponent implements OnInit {
     this.actionsSubject$.pipe(filter((action) => action.type === GET_TOKEN_SUCCESS)).subscribe({
       next: (authData: any) => {
         this.store.dispatch(getWorkspace({ payload: { workspace: authData.payload.username } }))
+        this.socketService.emit("connect-to-room", { room: authData.payload.email })
       }
     })
 

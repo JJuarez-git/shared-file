@@ -24,11 +24,11 @@ export class WorkspaceService {
   }
 
   createFolderIntoWorkspace(workspace: string, folder_name: string) {
-    return this.http.post<{ message: string, created: boolean }>(`${this.API_URL}/workspace/${workspace}`, { folder_name })
+    return this.http.post<{ message: string, created: boolean }>(`${this.API_URL}/workspace/${workspace}/folder`, { folder_name })
   }
 
   deleteFolderFromWorkspace(workspace: string, folder_name: string) {
-    return this.http.delete<{ message: string, deleted: boolean }>(`${this.API_URL}/workspace/${workspace}`, { body: { folder_name } })
+    return this.http.delete<{ message: string, deleted: boolean }>(`${this.API_URL}/workspace/${workspace}/folder`, { body: { folder_name } })
   }
 
 }

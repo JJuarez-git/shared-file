@@ -11,6 +11,7 @@ import { StoreEntity } from 'src/app/ngrx/store/store';
 })
 export class FolderComponent implements OnInit {
 
+  username!: string;
   @Input() name!: string;
 
   constructor(
@@ -19,10 +20,13 @@ export class FolderComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    this.store.select(state => state.auth.username).subscribe({
+      next: (data) => this.username = data
+    })
   }
 
   deleteFolder() {
-    this.workspaceService.deleteFolderFromWorkspace('jjuarez', this.name).subscribe({
+    this.workspaceService.deleteFolderFromWorkspace(this.username, this.name).subscribe({
       next: (res) => this.store.dispatch(deleteFolder({ payload: this.name })),
       error: (err) => console.error(err),
       complete: () => { }

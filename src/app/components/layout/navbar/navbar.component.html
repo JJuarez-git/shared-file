@@ -9,5 +9,6 @@
   <div class="status-text">
     <span class="light red-pilot" [ngClass]="{'green-pilot': socketService.socketStatus}"></span>
     <span>{{ socketService.socketStatus ? 'Conectado' : 'Desconectado' }}</span>
+    <span>&nbsp;|&nbsp;{{ username$ | async }}</span>
   </div>
 </div>
